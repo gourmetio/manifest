@@ -1,4 +1,4 @@
-export interface Service {
+export interface InstanceDesc {
   name: string;
   type: string;
   props: Record<string, any>;
@@ -39,4 +39,15 @@ export interface RootConfig {
   workspaces?: string[];
 }
 
-export type ModuleExport = RootConfig | Service | ReadonlyArray<RootConfig | Service>;
+export interface Service extends InstanceDesc {
+}
+
+export type ManifestValue = RootConfig | InstanceDesc | ReadonlyArray<RootConfig | InstanceDesc>;
+
+export interface ManifestContext {
+
+}
+
+export type ManifestFunc = (context: ManifestContext) => ManifestValue | Promise<ManifestValue>;
+
+export type ModuleExport = ManifestValue | ManifestFunc;
