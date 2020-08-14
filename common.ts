@@ -1,7 +1,6 @@
-export interface InstanceDesc {
+export interface InstanceBase {
   name: string;
   type: string;
-  props: Record<string, any>;
 }
 
 export interface BuildSpec {
@@ -39,5 +38,5 @@ export interface RootConfig {
   workspaces?: string[];
 }
 
-export interface Service extends InstanceDesc {
+export interface Service extends InstanceBase {
 }
