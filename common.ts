@@ -41,13 +41,3 @@ export interface RootConfig {
 
 export interface Service extends InstanceDesc {
 }
-
-export type ManifestValue = RootConfig | InstanceDesc | ReadonlyArray<RootConfig | InstanceDesc>;
-
-export interface ManifestContext {
-
-}
-
-export type ManifestFunc = (context: ManifestContext) => ManifestValue | Promise<ManifestValue>;
-
-export type ModuleExport = ManifestValue | ManifestFunc;
